@@ -15,7 +15,7 @@ public class AssignmentReportScheduler {
     @Autowired
     private StudentAssignmentSubmissionService submissionService;
 
-    @Scheduled(cron = "0 0 * * * *") // Run once every hour
+    @Scheduled(cron = "0 * * * * *") // Run once every hour
     public void generateAssignmentReport() {
         // Get the list of unprocessed assignment submissions
         List<StudentAssignmentSubmission> unprocessedSubmissions = submissionService.getUnprocessedSubmissions();
@@ -26,9 +26,9 @@ public class AssignmentReportScheduler {
             long submissionDateInMillis = submission.getSubmissionDate().getTime();
             long assignmentStartDateInMillis = submission.getAssignment().getAssignmentStartDate().getTime();
 
-            // Calculate the score based on the provided formula
+
             double score = fileSizeInKb + (submissionDateInMillis - assignmentStartDateInMillis);
-            score = Math.round(score * 10000.0) / 10000.0; // Round to 4 digits
+            score = Math.round(Math.round(score * 10000.0) / 10000.0);
 
             // Create and save the student assignment report
             StudentAssignmentReport report = new StudentAssignmentReport();

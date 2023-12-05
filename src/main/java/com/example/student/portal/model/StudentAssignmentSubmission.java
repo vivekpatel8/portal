@@ -38,8 +38,8 @@ public class StudentAssignmentSubmission {
     @Column(name = "submitted_by")
     private String submittedBy;
 
-    @Column(name = "processed_flag")
-    private boolean processedFlag;
+    @Column(name = "processed_flag", columnDefinition = "boolean default false")
+    private boolean processedFlag = false;
 
 
     public void setProcessedFlag(boolean processedFlag) {
