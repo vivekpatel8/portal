@@ -42,7 +42,6 @@ public class AssignmentService {
             existingAssignment.setAssignmentName(updatedAssignment.getAssignmentName());
             existingAssignment.setAssignmentStartDate(updatedAssignment.getAssignmentStartDate());
             existingAssignment.setAssignmentEndDate(updatedAssignment.getAssignmentEndDate());
-            // Update other fields as needed
 
             // Save and return the updated assignment
             return assignmentRepository.save(existingAssignment);

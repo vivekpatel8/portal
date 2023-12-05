@@ -43,7 +43,7 @@ public class AssignmentController {
         return ResponseEntity.ok(updatedAssignment);
     }
 
-    // Deactivate (mark active_flag as N) an assignment
+    // Deactivate (marking active_flag as N) an assignment
     @PatchMapping("/{id}/deactivate")
     public ResponseEntity<Void> deactivateAssignment(@PathVariable Long id) {
         assignmentService.deactivateAssignment(id);

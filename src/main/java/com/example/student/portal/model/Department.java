@@ -30,13 +30,10 @@ public class Department {
     @Column(name = "active_flag")
     private boolean activeFlag;
 
-    // Constructors, getters, setters, and other methods
-
-    // Default constructor
     public Department() {
     }
 
-    // Parameterized constructor
+
     public Department(String departmentName, String hodName) {
         this.departmentName = departmentName;
         this.hodName = hodName;
@@ -45,9 +42,6 @@ public class Department {
         this.activeFlag = true;
     }
 
-    // Getters and Setters for other fields
-
-    // Getter and Setter for id
     public Long getId() {
         return id;
     }

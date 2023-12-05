@@ -16,13 +16,11 @@ public class StudentAssignmentSubmissionController {
     @Autowired
     private StudentAssignmentSubmissionService submissionService;
 
-    // Endpoint for submitting an assignment
-    //@PostMapping("/{assignmentId}/submit/{studentId}")
 
-    @GetMapping("/submitAssignment")
+    @PostMapping("/{assignmentId}/submit/{studentId}")
     public ResponseEntity<String> submitAssignment(
-            @RequestParam(name = "aid") Long assignmentId,
-            @RequestParam(name = "sid") Long studentId,
+            @PathVariable() Long assignmentId,
+            @PathVariable() Long studentId,
             @RequestParam(name = "file") MultipartFile file,
             @RequestParam(name = "submittedBy") String submittedBy) {
         try {

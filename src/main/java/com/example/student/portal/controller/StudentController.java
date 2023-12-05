@@ -70,47 +70,8 @@ public class StudentController {
         if (studentReport != null) {
             return ResponseEntity.ok(studentReport);
         } else {
-            // Handle the case when the student is not found
+
             return ResponseEntity.notFound().build();
         }
     }
 }
-
-
-/*
-@RestController
-@RequestMapping("/students")
-public class StudentController {
-
-    @Autowired
-    private StudentService studentService;
-
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello Students";
-    }
-
-    @GetMapping()
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
-        Student student = studentService.getStudentById(id);
-        return ResponseEntity.of(Optional.ofNullable(student));
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-        Student createdStudent = studentService.createStudent(student);
-        return new ResponseEntity<>(createdStudent, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-        return ResponseEntity.noContent().build();
-    }
-}
-*/

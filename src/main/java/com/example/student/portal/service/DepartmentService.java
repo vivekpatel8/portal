@@ -27,7 +27,6 @@ public class DepartmentService {
     }
 
     public Department addDepartment(Department department) {
-        // Additional logic before saving, if needed
         return departmentRepository.save(department);
     }
 
@@ -37,15 +36,15 @@ public class DepartmentService {
         if (optionalExistingDepartment.isPresent()) {
             Department existingDepartment = optionalExistingDepartment.get();
 
-            // Update fields
+
             existingDepartment.setDepartmentName(updatedDepartment.getDepartmentName());
             existingDepartment.setHodName(updatedDepartment.getHodName());
-            // Update other fields as needed
 
-            // Save and return the updated department
+
+
             return departmentRepository.save(existingDepartment);
         } else {
-            // Department not found
+
             return null;
         }
     }

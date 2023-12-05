@@ -47,11 +47,11 @@ public class StudentAssignmentSubmission {
     }
 
 
-    // Default constructor
+
     public StudentAssignmentSubmission() {
     }
 
-    // Parameterized constructor
+
     public StudentAssignmentSubmission(Assignment assignment, Student student, Date submissionDate, byte[] file,
                                        Long fileSize, String fileName, String submittedBy) {
         this.assignment = assignment;
@@ -63,9 +63,7 @@ public class StudentAssignmentSubmission {
         this.submittedBy = submittedBy;
     }
 
-    // Getters and Setters for other fields
 
-    // Getter and Setter for id
     public Long getId() {
         return id;
     }

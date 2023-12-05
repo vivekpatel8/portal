@@ -39,9 +39,8 @@ public class Assignment {
     @ManyToMany(mappedBy = "assignments")
     private Set<Student> students = new HashSet<>();
 
-    // ... (existing methods)
 
-    // Getter and Setter for students
+
     public Set<Student> getStudents() {
         return students;
     }
@@ -49,13 +48,10 @@ public class Assignment {
     public void setStudents(Set<Student> students) {
         this.students = students;
     }
-    // Constructors, getters, setters, and other methods
-
-    // Default constructor
     public Assignment() {
     }
 
-    // Parameterized constructor
+
     public Assignment(String assignmentName, Date assignmentStartDate, Date assignmentEndDate) {
         this.assignmentName = assignmentName;
         this.assignmentStartDate = assignmentStartDate;
@@ -65,9 +61,6 @@ public class Assignment {
         this.activeFlag = true;
     }
 
-    // Getters and Setters for other fields
-
-    // Getter and Setter for id
     public Long getId() {
         return id;
     }

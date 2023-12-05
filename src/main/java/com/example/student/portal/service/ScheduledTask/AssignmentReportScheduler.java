@@ -15,12 +15,12 @@ public class AssignmentReportScheduler {
     @Autowired
     private StudentAssignmentSubmissionService submissionService;
 
-    @Scheduled(cron = "0 * * * * *") // Run once every hour
+    @Scheduled(cron = "0 0 * * * *") // sec min hour day month year | so it runs every hour
     public void generateAssignmentReport() {
-        // Get the list of unprocessed assignment submissions
+        // Getting the list of unprocessed assignment submissions
         List<StudentAssignmentSubmission> unprocessedSubmissions = submissionService.getUnprocessedSubmissions();
 
-        // Process each unprocessed submission and generate the report
+        // Processing each unprocessed submission and generating the report
         for (StudentAssignmentSubmission submission : unprocessedSubmissions) {
             double fileSizeInKb = submission.getFileSize() / 1024.0;
             long submissionDateInMillis = submission.getSubmissionDate().getTime();
@@ -30,7 +30,7 @@ public class AssignmentReportScheduler {
             double score = fileSizeInKb + (submissionDateInMillis - assignmentStartDateInMillis);
             score = Math.round(Math.round(score * 10000.0) / 10000.0);
 
-            // Create and save the student assignment report
+
             StudentAssignmentReport report = new StudentAssignmentReport();
             report.setStudent(submission.getStudent());
             report.setAssignment(submission.getAssignment());

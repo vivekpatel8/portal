@@ -48,8 +48,7 @@ public class StudentService {
             Department department = optionalDepartment.get();
             return studentRepository.findByDepartment(department);
         } else {
-            // Department not found
-            return List.of(); // or return null, depending on your preference
+            return List.of();
         }
     }
     public Student getStudentById(Long id) {
@@ -58,7 +57,6 @@ public class StudentService {
     }
 
     public Student addStudent(Student student) {
-        // Additional logic before saving, if needed
         return studentRepository.save(student);
     }
 
@@ -68,16 +66,12 @@ public class StudentService {
         if (optionalExistingStudent.isPresent()) {
             Student existingStudent = optionalExistingStudent.get();
 
-            // Update fields
+
             existingStudent.setFirstName(updatedStudent.getFirstName());
             existingStudent.setLastName(updatedStudent.getLastName());
             existingStudent.setCity(updatedStudent.getCity());
-            // Update other fields as needed
-
-            // Save and return the updated student
             return studentRepository.save(existingStudent);
         } else {
-            // Student not found
             return null;
         }
     }
@@ -91,24 +85,9 @@ public class StudentService {
             studentRepository.save(student);
         }
     }
-    /*public StudentReport getStudentReport(Long studentId) {
-        // Fetch the student
-        Student student = studentRepository.findById(studentId).orElse(null);
 
-        if (student != null) {
-            // Fetch the student's assignment submissions
-            List<StudentAssignmentSubmission> submissions = submissionRepository.findByStudentId(studentId);
-
-            // Create and return a StudentReport object
-            return new StudentReport(student, submissions);
-        } else {
-            // Handle the case when the student is not found
-            return null;
-        }
-    }*/
 
     public StudentReport getStudentReport(Long studentId) {
-        // Fetch the student
         Student student = studentRepository.findById(studentId).orElse(null);
 
         if (student != null) {
@@ -118,34 +97,7 @@ public class StudentService {
             // Create and return a StudentReport object
             return new StudentReport(student, submissions);
         } else {
-            // Handle the case when the student is not found
             return null;
         }
     }
 }
-
-/*
-@Service
-public class StudentService {
-
-    @Autowired
-    private StudentRepository studentRepository;
-
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
-    }
-
-    public Student getStudentById(Long studentId) {
-        return studentRepository.findById(studentId).orElse(null);
-    }
-
-    public Student createStudent(Student student) {
-        return studentRepository.save(student);
-    }
-
-    public void deleteStudent(Long studentId) {
-        studentRepository.deleteById(studentId);
-    }
-}
-
-*/

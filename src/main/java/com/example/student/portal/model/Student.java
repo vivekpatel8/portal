@@ -3,11 +3,10 @@ package com.example.student.portal.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
-// Student.java
+
 @Entity
 @Table(name = "students")
 public class Student {
@@ -53,13 +52,9 @@ public class Student {
     public void setAssignments(Set<Assignment> assignments) {
         this.assignments = assignments;
     }
-    // Constructors, getters, setters, and other methods
-
-    // Default constructor
     public Student() {
     }
 
-    // Parameterized constructor
     public Student(String firstName, String lastName, String city, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,9 +65,6 @@ public class Student {
         this.activeFlag = true;
     }
 
-    // Getters and Setters for other fields
-
-    // Getter and Setter for id
     public Long getId() {
         return id;
     }

@@ -31,13 +31,11 @@ public class StudentAssignmentReport {
     @Column(name = "updated_date")
     private Date updatedDate;
 
-    // Constructors, getters, setters, and other methods
 
-    // Default constructor
     public StudentAssignmentReport() {
     }
 
-    // Parameterized constructor
+
     public StudentAssignmentReport(Student student, Assignment assignment, Double score) {
         this.student = student;
         this.assignment = assignment;
@@ -46,9 +44,7 @@ public class StudentAssignmentReport {
         this.updatedDate = new Date();
     }
 
-    // Getters and Setters for other fields
 
-    // Getter and Setter for id
     public Long getId() {
         return id;
     }
